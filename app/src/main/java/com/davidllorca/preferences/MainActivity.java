@@ -20,19 +20,19 @@ public class MainActivity extends ActionBarActivity {
      * Save data in SharedPreferences.
      *
      * @param blockValue String name of block's preferences.
-     * @param keyValue String.
+     * @param keyValue   String.
      * @param valueValue String.
      */
-    protected void save(String blockValue, String keyValue, String valueValue){
+    protected void save(String blockValue, String keyValue, String valueValue) {
 
         // Check if key's field isn't empty
-        if("".equals(keyValue)){
+        if ("".equals(keyValue)) {
             showMessage(R.string.no_key);
             return;
         }
 
         // Check if values's field isn't empty
-        if("".equals(valueValue)){
+        if ("".equals(valueValue)) {
             showMessage(R.string.no_value);
             return;
         }
@@ -45,18 +45,20 @@ public class MainActivity extends ActionBarActivity {
          - Context.MODE_WORLD_WRITABLE(2): read/write permission froms others apps.
           */
         // Obtain object SharedPreferences
-        SharedPreferences preferences =  null;
-        if(!"".equals(blockValue)){
-            preferences = getSharedPreferences(blockValue,0);
+        SharedPreferences preferences = null;
+        if (!"".equals(blockValue)) {
+            preferences = getSharedPreferences(blockValue, 0);
         } else {
             preferences = getPreferences(0);
         }
 
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(keyValue,valueValue);
+        editor.putString(keyValue, valueValue);
         // save key-value
         editor.commit();
-
+        /*
+         Clear preferences: editor.remove("key");
+         */
     }
 
     /**
@@ -66,18 +68,18 @@ public class MainActivity extends ActionBarActivity {
      * @param keyValue
      * @return String value.
      */
-    protected String retrieve(String blockValue, String keyValue){
+    protected String retrieve(String blockValue, String keyValue) {
 
         // Check if key's field isn't empty
-        if("".equals(keyValue)){
+        if ("".equals(keyValue)) {
             showMessage(R.string.no_key);
             return "";
         }
 
         // Obtain object SharedPreferences
-        SharedPreferences preferences =  null;
-        if(!"".equals(blockValue)){
-            preferences = getSharedPreferences(blockValue,0);
+        SharedPreferences preferences = null;
+        if (!"".equals(blockValue)) {
+            preferences = getSharedPreferences(blockValue, 0);
         } else {
             preferences = getPreferences(0);
         }
@@ -91,11 +93,11 @@ public class MainActivity extends ActionBarActivity {
      *
      * @param message string resource.
      */
-    private void showMessage(int message){
+    private void showMessage(int message) {
         Context context = getApplicationContext();
         CharSequence text = getResources().getString(message);
         int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context,text,duration);
+        Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
 
