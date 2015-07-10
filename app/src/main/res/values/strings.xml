@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">Preferences</string>
+    <string name="action_settings">Settings</string>
+    <!-- layout -->
+    <string name="block_name">Name\'s block</string>
+    <string name="key">Key</string>
+    <string name="value">Value</string>
+    <string name="save">Save</string>
+    <string name="retrieve">Retrieve</string>
+    <!-- alerts -->
+    <string name="no_key">Key\'s field is empty</string>
+    <string name="no_value">Value\'s field is empty</string>
+    <string name="default_value">This value doesn\'t exist</string>
+</resources>
